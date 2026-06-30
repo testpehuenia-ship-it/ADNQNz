@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "agencia de marketing Patagonia",
   ],
   authors: [{ name: "ADNQN" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "ADNQN — Agencia Digital Neuquina",
     description:
