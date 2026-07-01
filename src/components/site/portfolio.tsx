@@ -13,6 +13,7 @@ type Project = {
   image: string;
   metric: string;
   metricLabel: string;
+  link?: string;
   accent: string;
 };
 
@@ -28,13 +29,14 @@ const PROJECTS: Project[] = [
     accent: "from-emerald-500/20 to-emerald-700/5",
   },
   {
-    title: "Patagonia Adventures",
-    category: "Operador turístico · Web",
+    title: "PehueniaGO",
+    category: "Guía Turística · Delivery",
     description:
-      "Plataforma multi-idioma con catálogo de excursiones y pagos para operador de aventura.",
-    image: "/images/work-tourism-2.png",
-    metric: "4.9★",
-    metricLabel: "valoración clientes",
+      "Todo Villa Pehuenia-Moquehue en un solo lugar. Comida, alojamiento, aventuras y comercios locales.",
+    image: "/images/pehueniago.png",
+    metric: "+50",
+    metricLabel: "comercios adheridos",
+    link: "https://www.pehueniago.ar/",
     accent: "from-amber-500/20 to-amber-700/5",
   },
   {
@@ -123,9 +125,9 @@ export function Portfolio() {
 }
 
 function ProjectCard({ project: p }: { project: Project }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
-  function handleMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handleMove(e: React.MouseEvent<HTMLElement>) {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -137,12 +139,19 @@ function ProjectCard({ project: p }: { project: Project }) {
     if (ref.current) ref.current.style.transform = "perspective(1000px) rotateY(0) rotateX(0)";
   }
 
+  const Wrapper = p.link ? "a" : "div";
+  const wrapperProps = p.link ? { href: p.link, target: "_blank", rel: "noopener noreferrer" } : {};
+
   return (
-    <div
-      ref={ref}
+    <Wrapper
+      {...wrapperProps}
+      ref={ref as any}
       onMouseMove={handleMove}
       onMouseLeave={reset}
-      className="group relative h-full overflow-hidden rounded-3xl border border-border/60 transition-[transform,box-shadow] duration-300 will-change-transform hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]"
+      className={cn(
+        "group relative h-full overflow-hidden rounded-3xl border border-border/60 transition-[transform,box-shadow] duration-300 will-change-transform hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] block",
+        p.link && "cursor-pointer"
+      )}
     >
       {/* Image */}
       <div className="relative aspect-[16/11] overflow-hidden">
@@ -182,6 +191,6 @@ function ProjectCard({ project: p }: { project: Project }) {
           <ArrowUpRight className="h-4 w-4" />
         </span>
       </div>
-    </div>
+    </Wrapper>
   );
 }

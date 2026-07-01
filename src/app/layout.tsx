@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,8 +61,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
       >
-        {children}
-        <Toaster />
+        <SmoothScroll>
+          <CustomCursor />
+          {children}
+          <Toaster />
+        </SmoothScroll>
       </body>
     </html>
   );

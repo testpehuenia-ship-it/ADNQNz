@@ -88,7 +88,7 @@ export function AboutAdn() {
         <Reveal delay={0.15} className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60 sm:aspect-[5/6]">
             <motion.img
-              src="/images/about-forest.png"
+              src="/images/hero-araucaria.jpeg"
               alt="Bosque de araucarias en Villa Pehuenia"
               style={{ y: imgY, scale: 1.12 }}
               className="absolute inset-0 h-full w-full object-cover"

@@ -133,23 +133,28 @@ export function BrandMark({ className }: { className?: string }) {
         className
       )}
     >
-      <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-background/90 backdrop-blur">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-          {/* DNA helix meets A */}
-          <path
-            d="M7 17C7 17 9 13 12 13C15 13 17 17 17 17M7 7C7 7 9 11 12 11C15 11 17 7 17 7M8.5 8.5L15.5 15.5M8.5 15.5L15.5 8.5"
-            stroke="url(#dna)"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <circle cx="12" cy="12" r="1.6" fill="oklch(0.8 0.145 76)" />
-          <defs>
-            <linearGradient id="dna" x1="6" y1="6" x2="18" y2="18">
-              <stop stopColor="oklch(0.66 0.13 158)" />
-              <stop offset="1" stopColor="oklch(0.8 0.145 76)" />
-            </linearGradient>
-          </defs>
-        </svg>
+      <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-background/90 backdrop-blur overflow-hidden">
+        <div className="flex flex-col items-center justify-center gap-[2.5px] [perspective:200px]">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.div
+              key={i}
+              initial={{ rotateY: i * 40 }}
+              animate={{ rotateY: 360 + i * 40 }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+              className="flex items-center justify-between w-[16px] [transform-style:preserve-3d]"
+            >
+              <div
+                className="h-[3px] w-[3px] shrink-0 rounded-full bg-emerald-400"
+                style={{ transform: "translateZ(3px)" }}
+              />
+              <div className="h-px flex-1 bg-gradient-to-r from-emerald-400/40 to-amber-400/40" />
+              <div
+                className="h-[3px] w-[3px] shrink-0 rounded-full bg-amber-400"
+                style={{ transform: "translateZ(-3px)" }}
+              />
+            </motion.div>
+          ))}
+        </div>
       </span>
     </span>
   );
