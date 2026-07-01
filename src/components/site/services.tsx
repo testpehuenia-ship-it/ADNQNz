@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Code2,
   MapPinned,
@@ -168,6 +169,7 @@ function ServiceCard({ service: s }: { service: Service }) {
   const Icon = s.icon;
   const isEmerald = s.accent === "emerald";
   
+  const [isFlipped, setIsFlipped] = useState(false);
   const direction = s.flipDirection || "right";
   
   const hoverTransformClasses = {
@@ -175,6 +177,13 @@ function ServiceCard({ service: s }: { service: Service }) {
     left: "group-hover:[transform:rotateY(-180deg)]",
     up: "group-hover:[transform:rotateX(180deg)]",
     down: "group-hover:[transform:rotateX(-180deg)]",
+  };
+
+  const activeTransformClasses = {
+    right: "[transform:rotateY(180deg)]",
+    left: "[transform:rotateY(-180deg)]",
+    up: "[transform:rotateX(180deg)]",
+    down: "[transform:rotateX(-180deg)]",
   };
   
   const backfaceTransformClasses = {
@@ -193,9 +202,12 @@ function ServiceCard({ service: s }: { service: Service }) {
       )}
     >
       <div 
+        onClick={() => setIsFlipped(!isFlipped)}
         className={cn(
           "relative flex h-full w-full flex-col transition-transform duration-[800ms] [transform-style:preserve-3d]",
-          s.flipImage && hoverTransformClasses[direction]
+          s.flipImage && "cursor-pointer",
+          s.flipImage && hoverTransformClasses[direction],
+          s.flipImage && isFlipped && activeTransformClasses[direction]
         )}
       >
         {/* FRONT FACE */}

@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
     category: "Guía Turística · Delivery",
     description:
       "Todo Villa Pehuenia-Moquehue en un solo lugar. Comida, alojamiento, aventuras y comercios locales.",
-    image: "/images/pehueniago.png",
+    image: "/images/pehueniago.PNG",
     metric: "+50",
     metricLabel: "comercios adheridos",
     link: "https://www.pehueniago.ar/",
