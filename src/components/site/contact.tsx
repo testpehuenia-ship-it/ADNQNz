@@ -26,30 +26,28 @@ export function Contact() {
     setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
-    const payload = Object.fromEntries(data.entries());
+    
+    const nombre = data.get("nombre");
+    const email = data.get("email");
+    const telefono = data.get("telefono") || "No especificado";
+    const servicio = data.get("servicio");
+    const mensaje = data.get("mensaje");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Error al enviar");
-      setDone(true);
-      form.reset();
-      toast({
-        title: "¡Mensaje enviado! 🎉",
-        description: "Te respondemos a la brevedad. Gracias por elegir ADNQN.",
-      });
-    } catch {
-      toast({
-        title: "No pudimos enviar el mensaje",
-        description: "Escribinos directo por WhatsApp al 2942661000.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
+    const text = `¡Hola ADNQN! 👋
+Mi nombre es ${nombre}.
+✉️ Email: ${email}
+📱 Tel: ${telefono}
+🎯 Me interesa: ${servicio}
+
+Mensaje:
+${mensaje}`;
+
+    const url = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    
+    setDone(true);
+    form.reset();
+    setLoading(false);
   }
 
   return (
