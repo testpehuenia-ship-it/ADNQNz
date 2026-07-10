@@ -37,7 +37,7 @@ export function Footer() {
               automatizaciones y marketing. Desde {SITE.location}, hacia el mundo.
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <Social href={`https://wa.me/${SITE.whatsapp}`} label="WhatsApp">
+              <Social href={SITE.whatsappLink} label="WhatsApp">
                 <Phone className="h-4 w-4" />
               </Social>
               <Social href="https://instagram.com" label="Instagram">
@@ -76,7 +76,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href={`https://wa.me/${SITE.whatsapp}`}
+                  href={SITE.whatsappLink}
                   className="flex items-center gap-2.5 text-sm text-foreground/70 transition-colors hover:text-amber-300"
                 >
                   <Phone className="h-4 w-4 text-emerald-300" />

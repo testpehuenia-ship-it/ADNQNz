@@ -65,7 +65,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Magnetic strength={12} className="hidden sm:inline-block">
             <a
-              href={`https://wa.me/${SITE.whatsapp}`}
+              href={SITE.whatsappLink}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-all hover:glow-amber"
@@ -110,7 +110,7 @@ export function Navbar() {
                 ))}
               </ul>
               <a
-                href={`https://wa.me/${SITE.whatsapp}`}
+                href={SITE.whatsappLink}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-foreground px-4 py-3 text-sm font-semibold text-background"

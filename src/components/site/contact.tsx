@@ -86,7 +86,7 @@ ${mensaje}`;
                   icon={<Phone className="h-4 w-4" />}
                   label="Teléfono / WhatsApp"
                   value={SITE.phone}
-                  href={`https://wa.me/${SITE.whatsapp}`}
+                  href={SITE.whatsappLink}
                 />
                 <ContactRow
                   icon={<Mail className="h-4 w-4" />}
@@ -110,7 +110,7 @@ ${mensaje}`;
             <Reveal delay={0.32}>
               <Magnetic strength={10} className="mt-7 inline-block">
                 <a
-                  href={`https://wa.me/${SITE.whatsapp}?text=Hola%20ADNQN,%20quiero%20cotizar%20un%20proyecto`}
+                  href={SITE.whatsappLink}
                   target="_blank"
                   rel="noreferrer"
                   className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 py-3.5 text-sm font-semibold text-background shadow-[0_12px_40px_-12px_oklch(0.66_0.13_158_/_0.6)] transition-transform hover:scale-[1.03]"
