@@ -18,6 +18,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adnqn.ar"),
   title: "ADNQN — Agencia Digital Neuquina | Web, Turismo, Automatizaciones & Marketing",
   description:
     "ADNQN es la agencia digital neuquina especializada en desarrollo web para turismo, automatizaciones y marketing. El ADN digital de Neuquén, desde Villa Pehuenia. Contacto: 2942661000.",
@@ -56,8 +57,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "ADNQN - Agencia Digital Neuquina",
+    image: "https://adnqn.ar/icon.svg",
+    "@id": "https://adnqn.ar",
+    url: "https://adnqn.ar",
+    telephone: "+542942661000",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Cerro Mocho y La Angostura",
+      addressLocality: "Villa Pehuenia",
+      addressRegion: "Neuquén",
+      addressCountry: "AR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -38.8833,
+      longitude: -71.1833,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    description: "Agencia digital especializada en desarrollo web para turismo, automatizaciones y marketing en Neuquén, Patagonia.",
+  };
+
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${fraunces.variable} antialiased bg-background text-foreground`}
       >

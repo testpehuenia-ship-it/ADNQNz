@@ -31,7 +31,7 @@ export function Hero() {
       >
         <img
           src="/images/hero-patagonia.png"
-          alt="Villa Pehuenia, Neuquén — montaña y lago al amanecer"
+          alt="Agencia de Desarrollo Web en Neuquén - Paisaje de Villa Pehuenia Patagonia"
           className="h-full w-full object-cover"
         />
       </motion.div>
@@ -94,13 +94,14 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="font-display mt-6 text-[clamp(4.5rem,19vw,15rem)] font-semibold leading-[0.82] tracking-tight"
         >
+          <span className="sr-only">Agencia de Desarrollo Web y Marketing Digital en Neuquén - </span>
           <span className="text-gradient shimmer animate-shimmer bg-[linear-gradient(110deg,oklch(0.88_0.12_85),oklch(0.66_0.13_158),oklch(0.8_0.145_76),oklch(0.66_0.13_158))] bg-clip-text text-transparent">
             ADNQN
           </span>
         </motion.h1>
 
         {/* Tagline */}
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
@@ -112,7 +113,7 @@ export function Hero() {
           <span className="text-foreground">webs que venden</span> para el turismo,
           <span className="text-foreground"> automatizaciones</span> que liberan tu tiempo
           y <span className="text-foreground">marketing</span> que hace crecer tu negocio.
-        </motion.p>
+        </motion.h2>
 
         {/* CTAs */}
         <motion.div
