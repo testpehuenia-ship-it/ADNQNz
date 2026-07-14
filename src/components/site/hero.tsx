@@ -105,14 +105,17 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-5 max-w-2xl text-pretty text-base text-foreground/80 sm:text-xl"
+          className="mt-5 max-w-2xl text-pretty text-base text-foreground/80 sm:text-lg space-y-3"
         >
-          El{" "}
-          <span className="font-display italic text-gradient-amber">ADN digital</span>{" "}
-          de Neuquén. Diseñamos{" "}
-          <span className="text-foreground">webs que venden</span> para el turismo,
-          <span className="text-foreground"> automatizaciones</span> que liberan tu tiempo
-          y <span className="text-foreground">marketing</span> que hace crecer tu negocio.
+          <span className="text-foreground font-medium block">
+            Diseñamos sitios web que hacen crecer empresas.
+          </span>
+          <span className="block">
+            En <span className="font-display italic text-gradient-amber">ADN</span> desarrollamos sitios web modernos, rápidos y optimizados para convertir visitantes en clientes. Luego los potenciamos con <span className="text-foreground">Marketing Digital, Inteligencia Artificial y automatización</span> para aumentar tus ventas y optimizar tus procesos.
+          </span>
+          <span className="block text-sm sm:text-base text-muted-foreground">
+            Trabajamos junto a empresas de turismo, petróleo y gas, comercios y PyMEs de toda Argentina.
+          </span>
         </motion.h2>
 
         {/* CTAs */}
