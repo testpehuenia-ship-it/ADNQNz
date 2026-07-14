@@ -15,6 +15,8 @@ type Project = {
   metricLabel: string;
   link?: string;
   accent: string;
+  imageFit?: "cover" | "contain";
+  imageBg?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -24,6 +26,8 @@ const PROJECTS: Project[] = [
     description:
       "Sitio web para Hostel Andino con experiencia visual de montaña y sistema de reservas online.",
     image: "/images/hostelandino.png",
+    imageFit: "contain",
+    imageBg: "bg-[#111]",
     metric: "+128%",
     metricLabel: "reservas online",
     link: "https://hostelandino.com.ar/",
@@ -155,11 +159,14 @@ function ProjectCard({ project: p }: { project: Project }) {
       )}
     >
       {/* Image */}
-      <div className="relative aspect-[16/11] overflow-hidden">
+      <div className={cn("relative aspect-[16/11] overflow-hidden", p.imageBg)}>
         <img
           src={p.image}
           alt={p.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className={cn(
+            "h-full w-full transition-transform duration-700 group-hover:scale-105",
+            p.imageFit === "contain" ? "object-contain p-4" : "object-cover"
+          )}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className={cn("absolute inset-0 bg-gradient-to-tr opacity-60 mix-blend-soft-light", p.accent)} />
