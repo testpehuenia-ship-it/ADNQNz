@@ -19,13 +19,14 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Cabañas del Lago",
+    title: "Hostel Andino",
     category: "Web + Booking · Turismo",
     description:
-      "Sitio premium con motor de reservas en tiempo real para cabañas frente al lago Aluminé.",
-    image: "/images/work-tourism-1.png",
+      "Sitio web para Hostel Andino con experiencia visual de montaña y sistema de reservas online.",
+    image: "/images/hostelandino.png",
     metric: "+128%",
     metricLabel: "reservas online",
+    link: "https://hostelandino.com.ar/",
     accent: "from-emerald-500/20 to-emerald-700/5",
   },
   {
